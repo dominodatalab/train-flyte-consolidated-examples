@@ -419,7 +419,9 @@ def wf() -> None:
                 ]
             ),
         ],
-        outputs=[],
+        outputs=[
+            Output(name="processed_data", type=FlyteFile[TypeVar("txt")])
+        ],
         cache=True,
         cache_version="v0",
     )

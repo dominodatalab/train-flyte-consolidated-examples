@@ -56,12 +56,12 @@ ReportGroupId2 = str(uuid.uuid4())
 
 @workflow
 def wf() -> Tuple[
-    Annotated[FlyteFile, ReportArtifact(key=ReportGroupId1, type="report", group="report_foo")], 
-    Annotated[FlyteFile, ReportArtifact2(key=ReportGroupId1, type="report", group="report_foo")], 
-    Annotated[FlyteFile, ReportArtifact3(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile, ReportArtifact4(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile, ReportArtifact5(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile, ReportArtifact6(key=ReportGroupId2, type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(key=ReportGroupId1, type="report", group="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(key=ReportGroupId1, type="report", group="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(key=ReportGroupId2, type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(key=ReportGroupId2, type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(key=ReportGroupId2, type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(key=ReportGroupId2, type="report", group="report_bar")], 
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
