@@ -40,28 +40,28 @@ import uuid
 # https://github.com/flyteorg/flytekit/blob/master/tests/flytekit/unit/core/test_artifacts.py
 
 # to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
-ReportArtifact = Artifact(name="report.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
-ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
-ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
-ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
-ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
-ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["key", "type", "group"], version=str(uuid.uuid4()))
+ReportArtifact = Artifact(name="report.pdf", partition_keys=["type", "group"])
+ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["type", "group"])
+ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["type", "group"])
+ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["type", "group"])
+ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["type", "group"])
+ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
 
 # this part is especially awful and something our helpers should take care of
-ReportGroupId1 = str(uuid.uuid4())
-ReportGroupId2 = str(uuid.uuid4())
+# ReportGroupId1 = str(uuid.uuid4())
+# ReportGroupId2 = str(uuid.uuid4())
 
 # ideally, a group is defined like this
 # ReportGroup = Group(name="my custom report", type=Report)
 
 @workflow
 def wf() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(key=ReportGroupId1, type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(key=ReportGroupId1, type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(key=ReportGroupId2, type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(key=ReportGroupId2, type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(type="report", group="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(type="report", group="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(type="report", group="report_bar")], 
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
