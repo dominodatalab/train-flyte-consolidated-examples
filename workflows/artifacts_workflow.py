@@ -108,7 +108,7 @@ def wf() -> Tuple[
     )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
 
     training_results = DominoJobTask(
-        name="Train model",
+        name="Train model1 v1",
         domino_job_config=DominoJobConfig(            
             Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
         ),
@@ -118,13 +118,13 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
     training_results2 = DominoJobTask(
-        name="Train model",
+        name="Train model2 v1",
         domino_job_config=DominoJobConfig(            
             Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
         ),
@@ -134,13 +134,13 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
     training_results3 = DominoJobTask(
-        name="Train model",
+        name="Train model3 v1",
         domino_job_config=DominoJobConfig(            
             Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
         ),
@@ -150,7 +150,6 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
             "datacsv": FlyteFile[TypeVar("csv")],
             "datadocx": FlyteFile[TypeVar("docx")],
             "datahtml": FlyteFile[TypeVar("html")],
@@ -163,11 +162,10 @@ def wf() -> Tuple[
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
     # return the result from 2nd node to the workflow annotated in different ways
-    model = training_results['model']
-    model2 = training_results2['model']
-    model3 = training_results3.model
+    model = training_results.datapdf
+    model2 = training_results2.datapdf
+    model3 = training_results3.datapdf
     return model, model2, model, model, model2, model3, \
-        training_results3.model, \
         training_results3.datacsv, \
         training_results3.datadocx, \
         training_results3.datahtml, \
