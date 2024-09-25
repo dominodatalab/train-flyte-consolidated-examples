@@ -21,3 +21,12 @@ for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
                 shutil.copyfileobj(src, f)
     except:
         pass
+
+for i in range(15):
+    for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
+        try:
+            with open("/workflow/outputs/data{}{}".format(i, ext), "wb") as f:
+                with open("/mnt/train-flyte-consolidated-examples/data/data.{}".format(ext), "rb") as src:
+                    shutil.copyfileobj(src, f)
+        except:
+            pass
