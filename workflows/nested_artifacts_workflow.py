@@ -90,7 +90,7 @@ def nested_wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -106,7 +106,7 @@ def nested_wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -150,7 +150,7 @@ def nested_wf_dupe() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -166,13 +166,13 @@ def nested_wf_dupe() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
-    model = training_results['model']
-    model2 = training_results2['model']
+    model = training_results['datapdf']
+    model2 = training_results2['datapdf']
     return model, model2
 
 @workflow
@@ -223,7 +223,7 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -239,7 +239,7 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -255,13 +255,13 @@ def wf() -> Tuple[
             "batch_size": int,
         },
         outputs={
-            "model": FlyteFile[TypeVar("pdf")],
+            "datapdf": FlyteFile[TypeVar("pdf")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
     # return the result from 2nd node to the workflow annotated in different ways
-    model = training_results['model']
-    model2 = training_results2['model']
-    model3 = training_results3['model']
+    model = training_results['datapdf']
+    model2 = training_results2['datapdf']
+    model3 = training_results3['datapdf']
     return model, model2, model3
