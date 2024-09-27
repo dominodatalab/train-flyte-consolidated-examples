@@ -30,3 +30,18 @@ for i in range(15):
                     shutil.copyfileobj(src, f)
         except:
             pass
+
+for file in ["conda.yaml", "MLmodel", "model.pkl", "python_env.yaml", "requirements.txt"]:
+    outputName = {
+        "conda.yaml": "condayaml",
+        "MLmodel": "MLmodel",
+        "model.pkl": "modelpkl",
+        "python_env.yaml": "pythonenvyaml",
+        "requirements.txt": "requirementstxt",
+    }
+    try:
+        with open("/workflow/outputs/model{}".format(outputName[file]), "wb") as f:
+            with open("/mnt/train-flyte-consolidated-examples/data/model/{}".format(file), "rb") as src:
+                shutil.copyfileobj(src, f)
+    except:
+        pass
