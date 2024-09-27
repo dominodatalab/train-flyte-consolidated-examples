@@ -46,6 +46,7 @@ ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["type", "group"])
 ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["type", "group"])
 ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["type", "group"])
 ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
+
 DataArtifact1 = Artifact(name="data.csv", partition_keys=["type", "group"])
 DataArtifact2 = Artifact(name="data.docx", partition_keys=["type", "group"])
 DataArtifact3 = Artifact(name="data.html", partition_keys=["type", "group"])
@@ -53,6 +54,12 @@ DataArtifact4 = Artifact(name="data.pdf", partition_keys=["type", "group"])
 DataArtifact5 = Artifact(name="data.rtf", partition_keys=["type", "group"])
 DataArtifact6 = Artifact(name="data.sas7bdat", partition_keys=["type", "group"])
 DataArtifact7 = Artifact(name="data.xlsx", partition_keys=["type", "group"])
+
+ModelArtifact1 = Artifact(name="conda.yaml", partition_keys=["type", "group"])
+ModelArtifact2 = Artifact(name="MLmodel", partition_keys=["type", "group"])
+ModelArtifact3 = Artifact(name="model.pkl", partition_keys=["type", "group"])
+ModelArtifact4 = Artifact(name="python_env.yaml", partition_keys=["type", "group"])
+ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["type", "group"])
 
 # this part is especially awful and something our helpers should take care of
 # ReportGroupId1 = str(uuid.uuid4())
@@ -76,6 +83,12 @@ def wf() -> Tuple[
     Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5(type="data", group="data_group")],
     Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6(type="data", group="data_group")],
     Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7(type="data", group="data_group")],
+
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact1(type="model", group="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact2(type="model", group="model_group")],
+    Annotated[FlyteFile[TypeVar("pkl")], ModelArtifact3(type="model", group="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact4(type="model", group="model_group")],
+    Annotated[FlyteFile[TypeVar("txt")], ModelArtifact5(type="model", group="model_group")],
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
@@ -140,7 +153,7 @@ def wf() -> Tuple[
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
 
     training_results3 = DominoJobTask(
-        name="Train model3 v1",
+        name="Train model3 v2",
         domino_job_config=DominoJobConfig(            
             Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
         ),
@@ -157,6 +170,11 @@ def wf() -> Tuple[
             "datartf": FlyteFile[TypeVar("rtf")],
             "datasas7bdat": FlyteFile[TypeVar("sas7bdat")],
             "dataxlsx": FlyteFile[TypeVar("xlsx")],
+            "modelcondayaml": FlyteFile[TypeVar("yaml")],
+            "modelMLmodel": FlyteFile[TypeVar("yaml")],
+            "modelmodelpkl": FlyteFile[TypeVar("pkl")],
+            "modelpythonenvyaml": FlyteFile[TypeVar("yaml")],
+            "modelrequirementstxt": FlyteFile[TypeVar("txt")],
         },
         use_latest=True,
     )(processed_data_in=data_prep_results.processed_data,epochs=10,batch_size=32)
@@ -173,4 +191,9 @@ def wf() -> Tuple[
         training_results3.datartf, \
         training_results3.datasas7bdat, \
         training_results3.dataxlsx, \
+        training_results3.modelcondayaml, \
+        training_results3.modelMLmodel, \
+        training_results3.modelmodelpkl, \
+        training_results3.modelpythonenvyaml, \
+        training_results3.modelrequirementstxt, \
         model
