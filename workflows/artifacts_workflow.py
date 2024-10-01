@@ -40,26 +40,26 @@ import uuid
 # https://github.com/flyteorg/flytekit/blob/master/tests/flytekit/unit/core/test_artifacts.py
 
 # to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
-ReportArtifact = Artifact(name="report.pdf", partition_keys=["type", "group"])
-ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["type", "group"])
-ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["type", "group"])
-ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["type", "group"])
-ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["type", "group"])
-ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
+ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["artifact_type", "artifact_name"])
 
-DataArtifact1 = Artifact(name="data.csv", partition_keys=["type", "group"])
-DataArtifact2 = Artifact(name="data.docx", partition_keys=["type", "group"])
-DataArtifact3 = Artifact(name="data.html", partition_keys=["type", "group"])
-DataArtifact4 = Artifact(name="data.pdf", partition_keys=["type", "group"])
-DataArtifact5 = Artifact(name="data.rtf", partition_keys=["type", "group"])
-DataArtifact6 = Artifact(name="data.sas7bdat", partition_keys=["type", "group"])
-DataArtifact7 = Artifact(name="data.xlsx", partition_keys=["type", "group"])
+DataArtifact1 = Artifact(name="data.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2 = Artifact(name="data.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3 = Artifact(name="data.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4 = Artifact(name="data.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5 = Artifact(name="data.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6 = Artifact(name="data.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7 = Artifact(name="data.xlsx", partition_keys=["artifact_type", "artifact_name"])
 
-ModelArtifact1 = Artifact(name="conda.yaml", partition_keys=["type", "group"])
-ModelArtifact2 = Artifact(name="MLmodel", partition_keys=["type", "group"])
-ModelArtifact3 = Artifact(name="model.pkl", partition_keys=["type", "group"])
-ModelArtifact4 = Artifact(name="python_env.yaml", partition_keys=["type", "group"])
-ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["type", "group"])
+ModelArtifact1 = Artifact(name="conda.yaml", partition_keys=["artifact_type", "artifact_name"])
+ModelArtifact2 = Artifact(name="MLmodel", partition_keys=["artifact_type", "artifact_name"])
+ModelArtifact3 = Artifact(name="model.pkl", partition_keys=["artifact_type", "artifact_name"])
+ModelArtifact4 = Artifact(name="python_env.yaml", partition_keys=["artifact_type", "artifact_name"])
+ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["artifact_type", "artifact_name"])
 
 # this part is especially awful and something our helpers should take care of
 # ReportGroupId1 = str(uuid.uuid4())
@@ -70,25 +70,25 @@ ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["type", "grou
 
 @workflow
 def wf() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact1(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact2(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact3(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact4(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7(type="data", group="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact1(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact2(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact3(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact4(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7(artifact_type="data", artifact_name="data_group")],
 
-    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact1(type="model", group="model_group")],
-    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact2(type="model", group="model_group")],
-    Annotated[FlyteFile[TypeVar("pkl")], ModelArtifact3(type="model", group="model_group")],
-    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact4(type="model", group="model_group")],
-    Annotated[FlyteFile[TypeVar("txt")], ModelArtifact5(type="model", group="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact1(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact2(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("pkl")], ModelArtifact3(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact4(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("txt")], ModelArtifact5(artifact_type="model", artifact_name="model_group")],
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 

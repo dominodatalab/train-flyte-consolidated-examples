@@ -41,12 +41,12 @@ import uuid
 # https://github.com/flyteorg/flytekit/blob/master/tests/flytekit/unit/core/test_artifacts.py
 
 # to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
-ReportArtifact = Artifact(name="report.pdf", partition_keys=["type", "group"])
-ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["type", "group"])
-ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["type", "group"])
-ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["type", "group"])
-ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["type", "group"])
-ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
+ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["artifact_type", "artifact_name"])
 
 # this part is especially awful and something our helpers should take care of
 # ReportGroupId1 = str(uuid.uuid4())
@@ -57,8 +57,8 @@ ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
 
 @workflow
 def nested_wf() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(artifact_type="report", artifact_name="report_bar")], 
 ]:
 
     data_prep_results = DominoJobTask(    
@@ -117,8 +117,8 @@ def nested_wf() -> Tuple[
 
 @workflow
 def nested_wf_dupe() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(type="report", group="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(artifact_type="report", artifact_name="report_bar")], 
 ]:
 
     data_prep_results = DominoJobTask(    
@@ -177,8 +177,8 @@ def nested_wf_dupe() -> Tuple[
 
 @workflow
 def wf() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(type="report", group="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(artifact_type="report", artifact_name="report_foo")], 
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
