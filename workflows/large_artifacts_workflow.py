@@ -40,117 +40,117 @@ import uuid
 # https://github.com/flyteorg/flytekit/blob/master/tests/flytekit/unit/core/test_artifacts.py
 
 # to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
-ReportArtifact = Artifact(name="report.pdf", partition_keys=["type", "group"])
-ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["type", "group"])
-ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["type", "group"])
-ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["type", "group"])
-ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["type", "group"])
-ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["type", "group"])
-DataArtifact0csv = Artifact(name="data0.csv", partition_keys=["type", "group"])
-DataArtifact0docx = Artifact(name="data0.docx", partition_keys=["type", "group"])
-DataArtifact0html = Artifact(name="data0.html", partition_keys=["type", "group"])
-DataArtifact0pdf = Artifact(name="data0.pdf", partition_keys=["type", "group"])
-DataArtifact0rtf = Artifact(name="data0.rtf", partition_keys=["type", "group"])
-DataArtifact0sas7bdat = Artifact(name="data0.sas7bdat", partition_keys=["type", "group"])
-DataArtifact0xlsx = Artifact(name="data0.xlsx", partition_keys=["type", "group"])
-DataArtifact1csv = Artifact(name="data1.csv", partition_keys=["type", "group"])
-DataArtifact1docx = Artifact(name="data1.docx", partition_keys=["type", "group"])
-DataArtifact1html = Artifact(name="data1.html", partition_keys=["type", "group"])
-DataArtifact1pdf = Artifact(name="data1.pdf", partition_keys=["type", "group"])
-DataArtifact1rtf = Artifact(name="data1.rtf", partition_keys=["type", "group"])
-DataArtifact1sas7bdat = Artifact(name="data1.sas7bdat", partition_keys=["type", "group"])
-DataArtifact1xlsx = Artifact(name="data1.xlsx", partition_keys=["type", "group"])
-DataArtifact2csv = Artifact(name="data2.csv", partition_keys=["type", "group"])
-DataArtifact2docx = Artifact(name="data2.docx", partition_keys=["type", "group"])
-DataArtifact2html = Artifact(name="data2.html", partition_keys=["type", "group"])
-DataArtifact2pdf = Artifact(name="data2.pdf", partition_keys=["type", "group"])
-DataArtifact2rtf = Artifact(name="data2.rtf", partition_keys=["type", "group"])
-DataArtifact2sas7bdat = Artifact(name="data2.sas7bdat", partition_keys=["type", "group"])
-DataArtifact2xlsx = Artifact(name="data2.xlsx", partition_keys=["type", "group"])
-DataArtifact3csv = Artifact(name="data3.csv", partition_keys=["type", "group"])
-DataArtifact3docx = Artifact(name="data3.docx", partition_keys=["type", "group"])
-DataArtifact3html = Artifact(name="data3.html", partition_keys=["type", "group"])
-DataArtifact3pdf = Artifact(name="data3.pdf", partition_keys=["type", "group"])
-DataArtifact3rtf = Artifact(name="data3.rtf", partition_keys=["type", "group"])
-DataArtifact3sas7bdat = Artifact(name="data3.sas7bdat", partition_keys=["type", "group"])
-DataArtifact3xlsx = Artifact(name="data3.xlsx", partition_keys=["type", "group"])
-DataArtifact4csv = Artifact(name="data4.csv", partition_keys=["type", "group"])
-DataArtifact4docx = Artifact(name="data4.docx", partition_keys=["type", "group"])
-DataArtifact4html = Artifact(name="data4.html", partition_keys=["type", "group"])
-DataArtifact4pdf = Artifact(name="data4.pdf", partition_keys=["type", "group"])
-DataArtifact4rtf = Artifact(name="data4.rtf", partition_keys=["type", "group"])
-DataArtifact4sas7bdat = Artifact(name="data4.sas7bdat", partition_keys=["type", "group"])
-DataArtifact4xlsx = Artifact(name="data4.xlsx", partition_keys=["type", "group"])
-DataArtifact5csv = Artifact(name="data5.csv", partition_keys=["type", "group"])
-DataArtifact5docx = Artifact(name="data5.docx", partition_keys=["type", "group"])
-DataArtifact5html = Artifact(name="data5.html", partition_keys=["type", "group"])
-DataArtifact5pdf = Artifact(name="data5.pdf", partition_keys=["type", "group"])
-DataArtifact5rtf = Artifact(name="data5.rtf", partition_keys=["type", "group"])
-DataArtifact5sas7bdat = Artifact(name="data5.sas7bdat", partition_keys=["type", "group"])
-DataArtifact5xlsx = Artifact(name="data5.xlsx", partition_keys=["type", "group"])
-DataArtifact6csv = Artifact(name="data6.csv", partition_keys=["type", "group"])
-DataArtifact6docx = Artifact(name="data6.docx", partition_keys=["type", "group"])
-DataArtifact6html = Artifact(name="data6.html", partition_keys=["type", "group"])
-DataArtifact6pdf = Artifact(name="data6.pdf", partition_keys=["type", "group"])
-DataArtifact6rtf = Artifact(name="data6.rtf", partition_keys=["type", "group"])
-DataArtifact6sas7bdat = Artifact(name="data6.sas7bdat", partition_keys=["type", "group"])
-DataArtifact6xlsx = Artifact(name="data6.xlsx", partition_keys=["type", "group"])
-DataArtifact7csv = Artifact(name="data7.csv", partition_keys=["type", "group"])
-DataArtifact7docx = Artifact(name="data7.docx", partition_keys=["type", "group"])
-DataArtifact7html = Artifact(name="data7.html", partition_keys=["type", "group"])
-DataArtifact7pdf = Artifact(name="data7.pdf", partition_keys=["type", "group"])
-DataArtifact7rtf = Artifact(name="data7.rtf", partition_keys=["type", "group"])
-DataArtifact7sas7bdat = Artifact(name="data7.sas7bdat", partition_keys=["type", "group"])
-DataArtifact7xlsx = Artifact(name="data7.xlsx", partition_keys=["type", "group"])
-DataArtifact8csv = Artifact(name="data8.csv", partition_keys=["type", "group"])
-DataArtifact8docx = Artifact(name="data8.docx", partition_keys=["type", "group"])
-DataArtifact8html = Artifact(name="data8.html", partition_keys=["type", "group"])
-DataArtifact8pdf = Artifact(name="data8.pdf", partition_keys=["type", "group"])
-DataArtifact8rtf = Artifact(name="data8.rtf", partition_keys=["type", "group"])
-DataArtifact8sas7bdat = Artifact(name="data8.sas7bdat", partition_keys=["type", "group"])
-DataArtifact8xlsx = Artifact(name="data8.xlsx", partition_keys=["type", "group"])
-DataArtifact9csv = Artifact(name="data9.csv", partition_keys=["type", "group"])
-DataArtifact9docx = Artifact(name="data9.docx", partition_keys=["type", "group"])
-DataArtifact9html = Artifact(name="data9.html", partition_keys=["type", "group"])
-DataArtifact9pdf = Artifact(name="data9.pdf", partition_keys=["type", "group"])
-DataArtifact9rtf = Artifact(name="data9.rtf", partition_keys=["type", "group"])
-DataArtifact9sas7bdat = Artifact(name="data9.sas7bdat", partition_keys=["type", "group"])
-DataArtifact9xlsx = Artifact(name="data9.xlsx", partition_keys=["type", "group"])
-DataArtifact10csv = Artifact(name="data10.csv", partition_keys=["type", "group"])
-DataArtifact10docx = Artifact(name="data10.docx", partition_keys=["type", "group"])
-DataArtifact10html = Artifact(name="data10.html", partition_keys=["type", "group"])
-DataArtifact10pdf = Artifact(name="data10.pdf", partition_keys=["type", "group"])
-DataArtifact10rtf = Artifact(name="data10.rtf", partition_keys=["type", "group"])
-DataArtifact10sas7bdat = Artifact(name="data10.sas7bdat", partition_keys=["type", "group"])
-DataArtifact10xlsx = Artifact(name="data10.xlsx", partition_keys=["type", "group"])
-DataArtifact11csv = Artifact(name="data11.csv", partition_keys=["type", "group"])
-DataArtifact11docx = Artifact(name="data11.docx", partition_keys=["type", "group"])
-DataArtifact11html = Artifact(name="data11.html", partition_keys=["type", "group"])
-DataArtifact11pdf = Artifact(name="data11.pdf", partition_keys=["type", "group"])
-DataArtifact11rtf = Artifact(name="data11.rtf", partition_keys=["type", "group"])
-DataArtifact11sas7bdat = Artifact(name="data11.sas7bdat", partition_keys=["type", "group"])
-DataArtifact11xlsx = Artifact(name="data11.xlsx", partition_keys=["type", "group"])
-DataArtifact12csv = Artifact(name="data12.csv", partition_keys=["type", "group"])
-DataArtifact12docx = Artifact(name="data12.docx", partition_keys=["type", "group"])
-DataArtifact12html = Artifact(name="data12.html", partition_keys=["type", "group"])
-DataArtifact12pdf = Artifact(name="data12.pdf", partition_keys=["type", "group"])
-DataArtifact12rtf = Artifact(name="data12.rtf", partition_keys=["type", "group"])
-DataArtifact12sas7bdat = Artifact(name="data12.sas7bdat", partition_keys=["type", "group"])
-DataArtifact12xlsx = Artifact(name="data12.xlsx", partition_keys=["type", "group"])
-DataArtifact13csv = Artifact(name="data13.csv", partition_keys=["type", "group"])
-DataArtifact13docx = Artifact(name="data13.docx", partition_keys=["type", "group"])
-DataArtifact13html = Artifact(name="data13.html", partition_keys=["type", "group"])
-DataArtifact13pdf = Artifact(name="data13.pdf", partition_keys=["type", "group"])
-DataArtifact13rtf = Artifact(name="data13.rtf", partition_keys=["type", "group"])
-DataArtifact13sas7bdat = Artifact(name="data13.sas7bdat", partition_keys=["type", "group"])
-DataArtifact13xlsx = Artifact(name="data13.xlsx", partition_keys=["type", "group"])
-DataArtifact14csv = Artifact(name="data14.csv", partition_keys=["type", "group"])
-DataArtifact14docx = Artifact(name="data14.docx", partition_keys=["type", "group"])
-DataArtifact14html = Artifact(name="data14.html", partition_keys=["type", "group"])
-DataArtifact14pdf = Artifact(name="data14.pdf", partition_keys=["type", "group"])
-DataArtifact14rtf = Artifact(name="data14.rtf", partition_keys=["type", "group"])
-DataArtifact14sas7bdat = Artifact(name="data14.sas7bdat", partition_keys=["type", "group"])
-DataArtifact14xlsx = Artifact(name="data14.xlsx", partition_keys=["type", "group"])
+ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["artifact_type", "artifact_name"])
+ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0csv = Artifact(name="data0.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0docx = Artifact(name="data0.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0html = Artifact(name="data0.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0pdf = Artifact(name="data0.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0rtf = Artifact(name="data0.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0sas7bdat = Artifact(name="data0.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact0xlsx = Artifact(name="data0.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1csv = Artifact(name="data1.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1docx = Artifact(name="data1.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1html = Artifact(name="data1.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1pdf = Artifact(name="data1.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1rtf = Artifact(name="data1.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1sas7bdat = Artifact(name="data1.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact1xlsx = Artifact(name="data1.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2csv = Artifact(name="data2.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2docx = Artifact(name="data2.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2html = Artifact(name="data2.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2pdf = Artifact(name="data2.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2rtf = Artifact(name="data2.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2sas7bdat = Artifact(name="data2.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact2xlsx = Artifact(name="data2.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3csv = Artifact(name="data3.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3docx = Artifact(name="data3.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3html = Artifact(name="data3.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3pdf = Artifact(name="data3.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3rtf = Artifact(name="data3.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3sas7bdat = Artifact(name="data3.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact3xlsx = Artifact(name="data3.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4csv = Artifact(name="data4.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4docx = Artifact(name="data4.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4html = Artifact(name="data4.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4pdf = Artifact(name="data4.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4rtf = Artifact(name="data4.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4sas7bdat = Artifact(name="data4.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact4xlsx = Artifact(name="data4.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5csv = Artifact(name="data5.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5docx = Artifact(name="data5.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5html = Artifact(name="data5.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5pdf = Artifact(name="data5.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5rtf = Artifact(name="data5.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5sas7bdat = Artifact(name="data5.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact5xlsx = Artifact(name="data5.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6csv = Artifact(name="data6.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6docx = Artifact(name="data6.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6html = Artifact(name="data6.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6pdf = Artifact(name="data6.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6rtf = Artifact(name="data6.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6sas7bdat = Artifact(name="data6.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact6xlsx = Artifact(name="data6.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7csv = Artifact(name="data7.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7docx = Artifact(name="data7.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7html = Artifact(name="data7.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7pdf = Artifact(name="data7.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7rtf = Artifact(name="data7.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7sas7bdat = Artifact(name="data7.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact7xlsx = Artifact(name="data7.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8csv = Artifact(name="data8.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8docx = Artifact(name="data8.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8html = Artifact(name="data8.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8pdf = Artifact(name="data8.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8rtf = Artifact(name="data8.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8sas7bdat = Artifact(name="data8.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact8xlsx = Artifact(name="data8.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9csv = Artifact(name="data9.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9docx = Artifact(name="data9.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9html = Artifact(name="data9.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9pdf = Artifact(name="data9.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9rtf = Artifact(name="data9.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9sas7bdat = Artifact(name="data9.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact9xlsx = Artifact(name="data9.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10csv = Artifact(name="data10.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10docx = Artifact(name="data10.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10html = Artifact(name="data10.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10pdf = Artifact(name="data10.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10rtf = Artifact(name="data10.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10sas7bdat = Artifact(name="data10.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact10xlsx = Artifact(name="data10.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11csv = Artifact(name="data11.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11docx = Artifact(name="data11.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11html = Artifact(name="data11.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11pdf = Artifact(name="data11.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11rtf = Artifact(name="data11.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11sas7bdat = Artifact(name="data11.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact11xlsx = Artifact(name="data11.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12csv = Artifact(name="data12.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12docx = Artifact(name="data12.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12html = Artifact(name="data12.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12pdf = Artifact(name="data12.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12rtf = Artifact(name="data12.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12sas7bdat = Artifact(name="data12.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact12xlsx = Artifact(name="data12.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13csv = Artifact(name="data13.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13docx = Artifact(name="data13.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13html = Artifact(name="data13.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13pdf = Artifact(name="data13.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13rtf = Artifact(name="data13.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13sas7bdat = Artifact(name="data13.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact13xlsx = Artifact(name="data13.xlsx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14csv = Artifact(name="data14.csv", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14docx = Artifact(name="data14.docx", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14html = Artifact(name="data14.html", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14pdf = Artifact(name="data14.pdf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14rtf = Artifact(name="data14.rtf", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14sas7bdat = Artifact(name="data14.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
+DataArtifact14xlsx = Artifact(name="data14.xlsx", partition_keys=["artifact_type", "artifact_name"])
 
 # this part is especially awful and something our helpers should take care of
 # ReportGroupId1 = str(uuid.uuid4())
@@ -161,117 +161,117 @@ DataArtifact14xlsx = Artifact(name="data14.xlsx", partition_keys=["type", "group
 
 @workflow
 def wf() -> Tuple[
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(type="report", group="report_foo")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(type="report", group="report_bar")], 
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact0csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact0docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact0html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact0pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact0rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact0sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact0xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact1csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact1docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact1html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact1pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact1rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact1sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact1xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact2csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact2docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact2html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact2pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact2rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact2sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact2xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact3csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact3docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact3html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact3pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact3rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact3sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact3xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact4csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact4docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact4html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact4pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact4rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact4sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact4xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact5csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact5docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact5html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact5pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact5sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact5xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact6csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact6docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact6html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact6pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact6rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact6xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact7csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact7docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact7html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact7pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact7rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact7sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact8csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact8docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact8html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact8pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact8rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact8sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact8xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact9csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact9docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact9html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact9pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact9rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact9sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact9xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact10csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact10docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact10html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact10pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact10rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact10sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact10xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact11csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact11docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact11html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact11pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact11rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact11sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact11xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact12csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact12docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact12html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact12pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact12rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact12sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact12xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact13csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact13docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact13html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact13pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact13rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact13sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact13xlsx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("csv")], DataArtifact14csv(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("docx")], DataArtifact14docx(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("html")], DataArtifact14html(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact14pdf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact14rtf(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact14sas7bdat(type="data", group="data_group")],
-    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact14xlsx(type="data", group="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact0csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact0docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact0html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact0pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact0rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact0sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact0xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact1csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact1docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact1html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact1pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact1rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact1sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact1xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact2csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact2docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact2html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact2pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact2rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact2sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact2xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact3csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact3docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact3html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact3pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact3rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact3sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact3xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact4csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact4docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact4html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact4pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact4rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact4sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact4xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact5csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact5docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact5html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact5pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact5sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact5xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact6csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact6docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact6html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact6pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact6rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact6xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact7csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact7docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact7html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact7pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact7rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact7sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact8csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact8docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact8html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact8pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact8rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact8sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact8xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact9csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact9docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact9html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact9pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact9rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact9sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact9xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact10csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact10docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact10html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact10pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact10rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact10sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact10xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact11csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact11docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact11html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact11pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact11rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact11sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact11xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact12csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact12docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact12html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact12pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact12rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact12sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact12xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact13csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact13docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact13html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact13pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact13rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact13sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact13xlsx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact14csv(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact14docx(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact14html(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact14pdf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact14rtf(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact14sas7bdat(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact14xlsx(artifact_type="data", artifact_name="data_group")],
 
     # ideally the definition looks more like this:
     # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
