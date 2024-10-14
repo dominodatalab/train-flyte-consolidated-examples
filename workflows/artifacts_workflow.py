@@ -60,8 +60,8 @@ def wf() -> Tuple[
             "data_path": str
         },
         outputs={
-            "processed_data": DataArtifact.File(name="processed.sas7bdat", type="sas7bdat"),
-            "processed_data2": DataArtifact.File(name="processed2.sas7bdat", type="sas7bdat"),
+            "processed_data": DataArtifact.File(name="processed.csv", type="csv"),
+            "processed_data2": DataArtifact.File(name="processed2.csv", type="csv"),
         },
         use_latest=True,
     )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
