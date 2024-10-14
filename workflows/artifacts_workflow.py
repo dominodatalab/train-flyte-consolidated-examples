@@ -17,36 +17,10 @@ from flytekit.types.directory import FlyteDirectory
 from typing import TypeVar, Optional, List, Dict, Annotated, Tuple, NamedTuple
 import uuid
 
-# to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
-ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
-ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["artifact_type", "artifact_name"])
-ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["artifact_type", "artifact_name"])
-ReportArtifact4 = Artifact(name="report4.pdf", partition_keys=["artifact_type", "artifact_name"])
-ReportArtifact5 = Artifact(name="report5.pdf", partition_keys=["artifact_type", "artifact_name"])
-ReportArtifact6 = Artifact(name="report6.pdf", partition_keys=["artifact_type", "artifact_name"])
-
-DataArtifact1 = Artifact(name="data.csv", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact2 = Artifact(name="data.docx", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact3 = Artifact(name="data.html", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact4 = Artifact(name="data.pdf", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact5 = Artifact(name="data.rtf", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact6 = Artifact(name="data.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
-DataArtifact7 = Artifact(name="data.xlsx", partition_keys=["artifact_type", "artifact_name"])
-
-ModelArtifact1 = Artifact(name="conda.yaml", partition_keys=["artifact_type", "artifact_name"])
-ModelArtifact2 = Artifact(name="MLmodel", partition_keys=["artifact_type", "artifact_name"])
-ModelArtifact3 = Artifact(name="model.pkl", partition_keys=["artifact_type", "artifact_name"])
-ModelArtifact4 = Artifact(name="python_env.yaml", partition_keys=["artifact_type", "artifact_name"])
-ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["artifact_type", "artifact_name"])
-
-# this part is especially awful and something our helpers should take care of
-
 ReportArtifactFoo = Artifact("report_foo", REPORT)
 ReportArtifactBar = Artifact("report_bar", REPORT)
 DataArtifact = Artifact("data_group", DATA)
 ModelArtifact = Artifact("model_group", MODEL)
-
-ModelArtifact.File(name="Model Two", type="pkl")
 
 @workflow
 def wf() -> Tuple[
@@ -86,11 +60,8 @@ def wf() -> Tuple[
             "data_path": str
         },
         outputs={
-            # NOTE: Flyte normally suppports this -- but notice there are no partitions, which make them useless to Domino
-            # this output is consumed by a subsequent task but also marked as an artifact
-            "processed_data": Annotated[FlyteFile, Artifact(name="processed.sas7bdat", version=str(uuid.uuid4()))],
-            # no downstream consumers -- simply an artifact output from an intermediate node in the graph
-            "processed_data2": Annotated[FlyteFile, Artifact(name="processed2.sas7bdat", version=str(uuid.uuid4()))],
+            "processed_data": DataArtifact.File(name="processed.sas7bdat", type="sas7bdat"),
+            "processed_data2": DataArtifact.File(name="processed2.sas7bdat", type="sas7bdat"),
         },
         use_latest=True,
     )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
