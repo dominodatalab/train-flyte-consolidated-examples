@@ -20,6 +20,9 @@ caching_workflow.py
 inputs_complex_workflow.py
 inputs_rare_workflow.py
 inputs_unions_workflow.py
-nested_artifacts_workflow.py
 nested_workflow.py
+
+old_artifacts_workflow.py
+old_large_artifacts_workflow.py
+old_nested_artifacts_workflow.py
 ```

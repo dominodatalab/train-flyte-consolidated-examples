@@ -1,23 +1,17 @@
 """
 Author: ddl-ebrown
 
-The workflow returns many artifacts outputs and regular outputs. It uses the newer train-flyte-library Artifact annotations.
+The workflow returns many artifacts outputs and regular outputs. It does not use the newer train-flyte-library Artifact annotations.
 """
 
-from flytekitplugins.domino.artifact import (
-    Artifact,
-    DATA,
-    MODEL,
-    REPORT,
-)
 from flytekitplugins.domino.helpers import DominoJobTask, DominoJobConfig, Input, Output
 from flytekit import workflow
 from flytekit.types.file import FlyteFile
 from flytekit.types.directory import FlyteDirectory
 from typing import TypeVar, Optional, List, Dict, Annotated, Tuple, NamedTuple
+from flytekit import Artifact
 import uuid
 
-# to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
 ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
 ReportArtifact2 = Artifact(name="report2.pdf", partition_keys=["artifact_type", "artifact_name"])
 ReportArtifact3 = Artifact(name="report3.pdf", partition_keys=["artifact_type", "artifact_name"])
@@ -39,42 +33,33 @@ ModelArtifact3 = Artifact(name="model.pkl", partition_keys=["artifact_type", "ar
 ModelArtifact4 = Artifact(name="python_env.yaml", partition_keys=["artifact_type", "artifact_name"])
 ModelArtifact5 = Artifact(name="requirements.txt", partition_keys=["artifact_type", "artifact_name"])
 
-# this part is especially awful and something our helpers should take care of
-
-ReportArtifactFoo = Artifact("report_foo", REPORT)
-ReportArtifactBar = Artifact("report_bar", REPORT)
-DataArtifact = Artifact("data_group", DATA)
-ModelArtifact = Artifact("model_group", MODEL)
-
-ModelArtifact.File(name="Model Two", type="pkl")
-
 @workflow
 def wf() -> Tuple[
-    ReportArtifactFoo.File(name="report.pdf", type="pdf"),
-    ReportArtifactFoo.File(name="report2.pdf", type="pdf"),
-    ReportArtifactBar.File(name="report3.pdf", type="pdf"),
-    ReportArtifactBar.File(name="report4.pdf", type="pdf"),
-    ReportArtifactBar.File(name="report5.pdf", type="pdf"),
-    ReportArtifactBar.File(name="report6.pdf", type="pdf"),
-    DataArtifact.File(name="data.csv", type="csv"),
-    DataArtifact.File(name="data.docx", type="docx"),
-    DataArtifact.File(name="data.html", type="html"),
-    DataArtifact.File(name="data.pdf", type="pdf"),
-    DataArtifact.File(name="data.rtf", type="rtf"),
-    DataArtifact.File(name="data.sas7bdat", type="sas7bdat"),
-    DataArtifact.File(name="data.xlsx", type="xlsx"),
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact2(artifact_type="report", artifact_name="report_foo")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact3(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact4(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact5(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("pdf")], ReportArtifact6(artifact_type="report", artifact_name="report_bar")], 
+    Annotated[FlyteFile[TypeVar("csv")], DataArtifact1(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("docx")], DataArtifact2(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("html")], DataArtifact3(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("pdf")], DataArtifact4(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("rtf")], DataArtifact5(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact6(artifact_type="data", artifact_name="data_group")],
+    Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact7(artifact_type="data", artifact_name="data_group")],
 
-    ModelArtifact.File(name="conda.yaml", type="yaml"),
-    ModelArtifact.File(name="MLModel", type="yaml"),
-    ModelArtifact.File(name="model.pkl", type="pkl"),
-    ModelArtifact.File(name="python_env.yaml", type="yaml"),
-    ModelArtifact.File(name="requirements.txt", type="txt"),
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact1(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact2(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("pkl")], ModelArtifact3(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("yaml")], ModelArtifact4(artifact_type="model", artifact_name="model_group")],
+    Annotated[FlyteFile[TypeVar("txt")], ModelArtifact5(artifact_type="model", artifact_name="model_group")],
 
     # normal workflow output with no annotations
     FlyteFile
     ]: 
     """py
-    pyflyte run --remote artifacts_workflow.py wf
+    pyflyte run --remote old_artifacts_workflow.py wf
     """
 
     data_prep_results = DominoJobTask(    

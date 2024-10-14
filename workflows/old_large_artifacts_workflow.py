@@ -1,7 +1,7 @@
 """
 Author(s): ddl-ebrown, ddl-rliu
 
-The workflow returns 100+ artifacts outputs and regular outputs.
+The workflow returns 100+ artifacts outputs and regular outputs. It does not use the newer train-flyte-library Artifact annotations.
 """
 
 from flytekitplugins.domino.helpers import DominoJobTask, DominoJobConfig, Input, Output
@@ -11,33 +11,6 @@ from flytekit.types.directory import FlyteDirectory
 from typing import TypeVar, Optional, List, Dict, Annotated, Tuple, NamedTuple
 from flytekit import Artifact
 import uuid
-
-# key pieces of data to collect
-
-# artifact groups are identified uniquely by uuid
-# * key (uuid)
-# * name
-# * type
-
-# artifact files within each group are identified uniquely by uuid
-# * key (uuid)
-# * filename
-# * artifact group (foreign key)
-
-# the problem is the way that Flyte stores metadata and how the existing development experience works
-# it makes it cumbersome to place artifacts into specific groups b/c of how the Python types are defined
-
-# we need to change the DX because:
-# it's error prone
-# requires specifying the group values as partitions again and again
-# requires more code than should be necessary, including predefining Artifacts by name instead of inside the Annotation
-# the name of the artifact should be able to automatically set the extension (used by frontend for file previews)
-
-# also note its worth investigating behavior dynamic partitions - i.e. ReportArtifact.create_from()
-
-# upstream code here shows some examples
-# https://github.com/flyteorg/flytekit/blob/master/flytekit/core/artifact.py#L371
-# https://github.com/flyteorg/flytekit/blob/master/tests/flytekit/unit/core/test_artifacts.py
 
 # to use partition_keys (necessary for Domino), we have to define this type up front -- this entire definition should be eliminated
 ReportArtifact = Artifact(name="report.pdf", partition_keys=["artifact_type", "artifact_name"])
@@ -151,13 +124,6 @@ DataArtifact14pdf = Artifact(name="data14.pdf", partition_keys=["artifact_type",
 DataArtifact14rtf = Artifact(name="data14.rtf", partition_keys=["artifact_type", "artifact_name"])
 DataArtifact14sas7bdat = Artifact(name="data14.sas7bdat", partition_keys=["artifact_type", "artifact_name"])
 DataArtifact14xlsx = Artifact(name="data14.xlsx", partition_keys=["artifact_type", "artifact_name"])
-
-# this part is especially awful and something our helpers should take care of
-# ReportGroupId1 = str(uuid.uuid4())
-# ReportGroupId2 = str(uuid.uuid4())
-
-# ideally, a group is defined like this
-# ReportGroup = Group(name="my custom report", type=Report)
 
 @workflow
 def wf() -> Tuple[
@@ -273,16 +239,11 @@ def wf() -> Tuple[
     Annotated[FlyteFile[TypeVar("sas7bdat")], DataArtifact14sas7bdat(artifact_type="data", artifact_name="data_group")],
     Annotated[FlyteFile[TypeVar("xlsx")], DataArtifact14xlsx(artifact_type="data", artifact_name="data_group")],
 
-    # ideally the definition looks more like this:
-    # Annotated[FlyteFile, Artifact(name="report.pdf", Group=ReportGroup)], 
-    # this could be further simplified in the programming model if we know that these artifacts are only a single file like
-    # ArtifactFile(name="report.pdf", Group=ReportGroup)
-
     # normal workflow output with no annotations
     FlyteFile
     ]: 
     """py
-    pyflyte run --remote large_artifacts_workflow.py wf
+    pyflyte run --remote old_large_artifacts_workflow.py wf
     """
 
     data_prep_results = DominoJobTask(    
