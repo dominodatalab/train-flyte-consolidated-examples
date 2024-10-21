@@ -18,7 +18,8 @@ git clone https://github.com/dominodatalab/train-flyte-consolidated-examples.git
 ## Workflows Overview
 
 ```bash
-invalid_artifacts_workflow.py
+invalid_wf_level_artifacts_workflow.py
+invalid_task_level_artifacts_workflow.py
 
 artifacts_workflow.py
 caching_workflow.py
