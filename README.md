@@ -2,16 +2,12 @@
 
 `Workflow authors: ddl-ebrown, ddl-galias`
 
-## Usage
+## Usage (modified)
 
 ```bash
 # Run the following in a workspace
-git clone https://github.com/dominodatalab/train-flyte-consolidated-examples.git
+git clone -b invalid --single-branch https://github.com/dominodatalab/train-flyte-consolidated-examples.git
 # Click "Sync All", then run
-./train-flyte-consolidated-examples/bin/run-all.sh
-# View logs in ./flyte-workflows.log
-
-# To run just one workflow
 ./train-flyte-consolidated-examples/bin/run-one.sh
 ```
 
