@@ -17,9 +17,14 @@ from flytekit.types.directory import FlyteDirectory
 from typing import TypeVar, Optional, List, Dict, Annotated, Tuple, NamedTuple
 import uuid
 
+class DDict:
+    def __init__(self, value):
+        self.value = value
+
 ReportArtifactFoo = Artifact("report_foo", REPORT)
-ReportArtifactBar = Artifact("", REPORT)
-DataArtifact = Artifact("data_group", DATA)
+ReportArtifactBar = Artifact("report_bar", REPORT)
+DataArtifact1 = Artifact("", DATA)
+DataArtifact2 = Artifact("mydata", DDict("mydata"))
 ModelArtifact = Artifact("model_group", MODEL)
 
 @workflow
@@ -60,8 +65,8 @@ def wf() -> Tuple[
             "data_path": str
         },
         outputs={
-            "processed_data": DataArtifact.File(name="processed.csv", type="csv"),
-            "processed_data2": DataArtifact.File(name="processed2.csv", type="csv"),
+            "processed_data": DataArtifact1.File(name="processed.csv", type="csv"),
+            "processed_data2": DataArtifact2.File(name="processed2.csv", type="csv"),
         },
         use_latest=True,
     )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
