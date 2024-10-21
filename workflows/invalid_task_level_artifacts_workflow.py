@@ -23,6 +23,7 @@ class DDict:
 
 ReportArtifactFoo = Artifact("report_foo", REPORT)
 ReportArtifactBar = Artifact("report_bar", REPORT)
+DataArtifact = Artifact("data_group", DATA)
 DataArtifact1 = Artifact("", DATA)
 DataArtifact2 = Artifact("mydata", DDict("mydata"))
 ModelArtifact = Artifact("model_group", MODEL)
