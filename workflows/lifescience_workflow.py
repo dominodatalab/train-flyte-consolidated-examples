@@ -151,4 +151,5 @@ def ADaM_TFL() -> Tuple[
         training_results3.datapdf, \
         training_results3.datartf, \
         training_results3.datasas7bdat, \
-        training_results3.dataxlsx
+        training_results3.dataxlsx, \
+        model
