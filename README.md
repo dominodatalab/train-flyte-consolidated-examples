@@ -4,15 +4,15 @@
 
 ## Usage
 
+Create Project > Hosted By "Git Service Provider" > Git Repository URL "https://github.com/dominodatalab/train-flyte-consolidated-examples.git"
+
 ```bash
 # Run the following in a workspace
-git clone https://github.com/dominodatalab/train-flyte-consolidated-examples.git
-# Click "Sync All", then run
-./train-flyte-consolidated-examples/bin/run-all.sh
+./bin/run-all.sh
 # View logs in ./flyte-workflows.log
 
 # To run just one workflow
-./train-flyte-consolidated-examples/bin/run-one.sh
+./bin/run-one.sh
 ```
 
 ## Workflows Overview

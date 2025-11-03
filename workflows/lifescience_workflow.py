@@ -46,7 +46,7 @@ def ADaM_TFL() -> Tuple[
     data_prep_results = DominoJobTask(    
         name="Prepare data",    
         domino_job_config=DominoJobConfig(
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "data_path": str
@@ -56,12 +56,12 @@ def ADaM_TFL() -> Tuple[
             "processed_data2": DataArtifactADaM.File(name="processed2.csv", type="csv"),
         },
         use_latest=True,
-    )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
+    )(data_path="/mnt/code/data/data.csv")
 
     training_results = DominoJobTask(
         name="Create ADSL Dataset",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -77,7 +77,7 @@ def ADaM_TFL() -> Tuple[
     training_results2 = DominoJobTask(
         name="Create ADAE Dataset",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -93,7 +93,7 @@ def ADaM_TFL() -> Tuple[
     training_results3 = DominoJobTask(
         name="Create ADVS Dataset",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,

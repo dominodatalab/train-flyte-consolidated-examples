@@ -30,7 +30,7 @@ def nested_wf() -> Tuple[
     data_prep_results = DominoJobTask(    
         name="Prepare data 1",    
         domino_job_config=DominoJobConfig(
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "data_path": str
@@ -43,12 +43,12 @@ def nested_wf() -> Tuple[
             "processed_data2": Annotated[FlyteFile, Artifact(name="processed2.sas7bdat", version=str(uuid.uuid4()))],
         },
         use_latest=True,
-    )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
+    )(data_path="/mnt/code/data/data.csv")
 
     training_results = DominoJobTask(
         name="Train model 2",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -64,7 +64,7 @@ def nested_wf() -> Tuple[
     training_results2 = DominoJobTask(
         name="Train model 3",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -90,7 +90,7 @@ def nested_wf_dupe() -> Tuple[
     data_prep_results = DominoJobTask(    
         name="Prepare data 4",    
         domino_job_config=DominoJobConfig(
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "data_path": str
@@ -103,12 +103,12 @@ def nested_wf_dupe() -> Tuple[
             "processed_data2": Annotated[FlyteFile, Artifact(name="processed2.sas7bdat", version=str(uuid.uuid4()))],
         },
         use_latest=True,
-    )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
+    )(data_path="/mnt/code/data/data.csv")
 
     training_results = DominoJobTask(
         name="Train model 5",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -124,7 +124,7 @@ def nested_wf_dupe() -> Tuple[
     training_results2 = DominoJobTask(
         name="Train model 6",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -161,7 +161,7 @@ def wf() -> Tuple[
     data_prep_results = DominoJobTask(    
         name="Prepare data 7",    
         domino_job_config=DominoJobConfig(
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "data_path": str
@@ -174,14 +174,14 @@ def wf() -> Tuple[
             "processed_data2": Annotated[FlyteFile, Artifact(name="processed2.sas7bdat", version=str(uuid.uuid4()))],
         },
         use_latest=True,
-    )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
+    )(data_path="/mnt/code/data/data.csv")
     nested_wf()
     nested_wf_dupe()
 
     training_results = DominoJobTask(
         name="Train model 8",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -197,7 +197,7 @@ def wf() -> Tuple[
     training_results2 = DominoJobTask(
         name="Train model 9",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -213,7 +213,7 @@ def wf() -> Tuple[
     training_results3 = DominoJobTask(
         name="Train model 10",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,

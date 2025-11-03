@@ -54,8 +54,8 @@ def wf() -> None:
 
     DominoTask(
         name="Rare inputs workflow 2",
-        command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.4",
+        command="python /mnt/code/data/prep-data.py",
+        environment="Domino Standard Environment Py3.10 R4.5",
         hardware_tier="Small",
         inputs=[
             Input(

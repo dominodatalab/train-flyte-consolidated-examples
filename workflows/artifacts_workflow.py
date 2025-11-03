@@ -54,7 +54,7 @@ def wf() -> Tuple[
     data_prep_results = DominoJobTask(    
         name="Prepare data",    
         domino_job_config=DominoJobConfig(
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "data_path": str
@@ -64,12 +64,12 @@ def wf() -> Tuple[
             "processed_data2": DataArtifact.File(name="processed2.csv", type="csv"),
         },
         use_latest=True,
-    )(data_path="/mnt/train-flyte-consolidated-examples/data/data.csv")
+    )(data_path="/mnt/code/data/data.csv")
 
     training_results = DominoJobTask(
         name="Train model1 v1",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -85,7 +85,7 @@ def wf() -> Tuple[
     training_results2 = DominoJobTask(
         name="Train model2 v1",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,
@@ -101,7 +101,7 @@ def wf() -> Tuple[
     training_results3 = DominoJobTask(
         name="Train model3 v2",
         domino_job_config=DominoJobConfig(            
-            Command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
+            Command="python /mnt/code/data/prep-data.py",
         ),
         inputs={
             "processed_data_in": FlyteFile,

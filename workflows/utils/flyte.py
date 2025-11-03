@@ -91,6 +91,7 @@ def DominoTask(
         outputs=output_types,
         cache=cache,
         cache_version=cache_version,
+        use_latest=True,
     )
 
     results = job(**input_values)

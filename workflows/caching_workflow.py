@@ -48,11 +48,11 @@ def wf() -> None:
 
     data_prep_results = DominoTask(
         name="Prepare data",
-        command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.4",
+        command="python /mnt/code/data/prep-data.py",
+        environment="Domino Standard Environment Py3.10 R4.5",
         hardware_tier="Small",
         inputs=[
-            Input(name="data_path", type=str, value="/mnt/train-flyte-consolidated-examples/data/data.csv")
+            Input(name="data_path", type=str, value="/mnt/code/data/data.csv")
         ],
         outputs=[
             Output(name="processed_data", type=FlyteFile[TypeVar("csv")])
@@ -63,11 +63,11 @@ def wf() -> None:
 
     data_prep_results_2 = DominoTask(
         name="Prepare data 2",
-        command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.4",
+        command="python /mnt/code/data/prep-data.py",
+        environment="Domino Standard Environment Py3.10 R4.5",
         hardware_tier="Small",
         inputs=[
-            Input(name="data_path", type=str, value="/mnt/train-flyte-consolidated-examples/data/data.csv")
+            Input(name="data_path", type=str, value="/mnt/code/data/data.csv")
         ],
         outputs=[
             Output(name="processed_data", type=FlyteFile[TypeVar("csv")])
@@ -78,11 +78,11 @@ def wf() -> None:
 
     data_prep_results_3 = DominoTask(
         name="Prepare data 3",
-        command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.4",
+        command="python /mnt/code/data/prep-data.py",
+        environment="Domino Standard Environment Py3.10 R4.5",
         hardware_tier="Small",
         inputs=[
-            Input(name="data_path", type=str, value="/mnt/train-flyte-consolidated-examples/data/data.csv")
+            Input(name="data_path", type=str, value="/mnt/code/data/data.csv")
         ],
         outputs=[
             Output(name="processed_data", type=FlyteFile[TypeVar("txt")])
@@ -93,8 +93,8 @@ def wf() -> None:
 
     DominoTask(
         name="Inputs workflow 2",
-        command="python /mnt/train-flyte-consolidated-examples/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.4",
+        command="python /mnt/code/data/prep-data.py",
+        environment="Domino Standard Environment Py3.10 R4.5",
         hardware_tier="Small",
         inputs=[
             Input(

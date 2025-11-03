@@ -17,7 +17,7 @@ for named_output in ["processed_data"] + [f"processed_data{i}" for i in range(2,
 for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
     try:
         with open("/workflow/outputs/data{}".format(ext), "wb") as f:
-            with open("/mnt/train-flyte-consolidated-examples/data/data.{}".format(ext), "rb") as src:
+            with open("/mnt/code/data/data.{}".format(ext), "rb") as src:
                 shutil.copyfileobj(src, f)
     except:
         pass
@@ -26,7 +26,7 @@ for i in range(15):
     for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
         try:
             with open("/workflow/outputs/data{}{}".format(i, ext), "wb") as f:
-                with open("/mnt/train-flyte-consolidated-examples/data/data.{}".format(ext), "rb") as src:
+                with open("/mnt/code/data/data.{}".format(ext), "rb") as src:
                     shutil.copyfileobj(src, f)
         except:
             pass
@@ -41,7 +41,7 @@ for file in ["conda.yaml", "MLmodel", "model.pkl", "python_env.yaml", "requireme
     }
     try:
         with open("/workflow/outputs/model{}".format(outputName[file]), "wb") as f:
-            with open("/mnt/train-flyte-consolidated-examples/data/model/{}".format(file), "rb") as src:
+            with open("/mnt/code/data/model/{}".format(file), "rb") as src:
                 shutil.copyfileobj(src, f)
     except:
         pass
