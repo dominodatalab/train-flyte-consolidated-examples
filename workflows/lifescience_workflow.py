@@ -119,26 +119,23 @@ def ADaM_TFL() -> Tuple[
 
     from flytekitplugins.domino.artifact import Artifact, DATA, ExportArtifactToDatasetsSpec, ExportArtifactToNetAppVolumesSpec, MODEL, REPORT, run_launch_export_artifacts_task
     # Programmatic export is enabled here
-    run_launch_export_artifacts_task(
-        spec_list=[
-            ExportArtifactToDatasetsSpec(
-                artifact=DataArtifactADaM,
-                dataset_id="68bee45b9f4c8754ed1cfcde",
-            ),
-            # ... More exports can be defined in this list, if needed.
-        ],
-        netapp_volume_spec_list=[
-            ExportArtifactToNetAppVolumesSpec(
-                artifact=DataArtifactADaM,
-                netapp_volume_id="63ea5468-592f-4d24-8685-c55b2929cf8a",
-                target_relative_path="mydata",
-            ),
-            # ... More exports can be defined in this list, if needed.
-        ],
-        environment_name="dse export",
-        hardware_tier_id="small-k8s",
-        use_project_defaults_for_omitted=True,
-    )
+    # run_launch_export_artifacts_task(
+    #     spec_list=[
+    #         ExportArtifactToDatasetsSpec(
+    #             artifact=DataArtifactADaM,
+    #             dataset_id="68bee45b9f4c8754ed1cfcde",
+    #         ),
+    #         ExportArtifactToNetAppVolumesSpec(
+    #             artifact=DataArtifactADaM,
+    #             netapp_volume_id="63ea5468-592f-4d24-8685-c55b2929cf8a",
+    #             target_relative_path="mydata",
+    #         ),
+    #         # ... More exports can be defined in this list, if needed.
+    #     ],
+    #     environment_name="dse export",
+    #     hardware_tier_id="small-k8s",
+    #     use_project_defaults_for_omitted=True,
+    # )
 
     # return the result from 2nd node to the workflow annotated in different ways
     model = training_results.datapdf
