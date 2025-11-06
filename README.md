@@ -4,7 +4,7 @@
 
 ## Usage
 
-Create Project > Hosted By "Git Service Provider" > Git Repository URL "https://github.com/dominodatalab/train-flyte-consolidated-examples.git"
+Create Project > Hosted By "Git Service Provider" > Git Repository URL `https://github.com/dominodatalab/train-flyte-consolidated-examples.git`
 
 ```bash
 # Run the following in a workspace
