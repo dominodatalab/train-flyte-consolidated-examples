@@ -40,7 +40,7 @@ def ADaM_TFL() -> Tuple[
     FlyteFile
     ]: 
     """py
-    pyflyte run --remote artifacts_workflow.py wf
+    pyflyte run --remote lifescience_workflow.py ADaM_TFL
     """
 
     data_prep_results = DominoJobTask(    
