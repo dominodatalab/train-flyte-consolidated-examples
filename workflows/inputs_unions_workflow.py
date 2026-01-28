@@ -32,6 +32,9 @@ from flytekit.types.structured.structured_dataset import (
     StructuredDatasetTransformerEngine,
 )
 
+STANDARD_ENVIRONMENT_NAME = "Domino Standard Environment Py3.10 R4.5"
+SMALL_HARDWARE_TIER_NAME = "Small"
+
 all_cols = kwtypes(Name=str, Age=int, Height=int)
 df = pd.DataFrame({"Name": ["Tom", "Joseph"], "Age": [36, 22], "Height": [160, 178]})
 
@@ -55,8 +58,8 @@ def wf() -> None:
     DominoTask(
         name="Rare inputs workflow 2",
         command="python /mnt/code/data/prep-data.py",
-        environment="Domino Standard Environment Py3.10 R4.5",
-        hardware_tier="Small",
+        environment=STANDARD_ENVIRONMENT_NAME,
+        hardware_tier=SMALL_HARDWARE_TIER_NAME,
         inputs=[
             Input(
                 name="map_union_nested", 
