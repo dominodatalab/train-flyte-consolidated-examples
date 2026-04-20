@@ -87,17 +87,17 @@ def multi_bundle_demo():
             # model.pkl + metrics.json → Alpha and Beta
             ExportArtifactFilesToBundleSpec(
                 files=[ModelFile, MetricsFile],
-                bundle_names=["Test Bundle Alpha", "Test Bundle Beta"],
+                bundle=["Test Bundle Alpha", "Test Bundle Beta"],
             ),
             # report.html → Beta and Gamma
             ExportArtifactFilesToBundleSpec(
                 files=[ReportFile],
-                bundle_names=["Test Bundle Beta", "Test Bundle Gamma"],
+                bundle=["Test Bundle Beta", "Test Bundle Gamma"],
             ),
             # training_data.csv → Gamma only
             ExportArtifactFilesToBundleSpec(
                 files=[DataFile],
-                bundle_names=["Test Bundle Gamma"],
+                bundle=["Test Bundle Gamma"],
             ),
         ],
         use_project_defaults_for_omitted=True,
