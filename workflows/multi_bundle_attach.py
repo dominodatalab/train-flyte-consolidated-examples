@@ -7,7 +7,7 @@ one or more artifact files to one or more bundles:
 
   Bundle Alpha  ← model.pkl, metrics.json
   Bundle Beta   ← model.pkl, metrics.json, report.html
-  Bundle Gamma  ← report.html, training_data.csv
+  Bundle Gamma  ← report.md, training_data.csv
 
 Prerequisites:
   - Bundles named "Test Bundle Alpha", "Test Bundle Beta", and
@@ -36,7 +36,7 @@ ReportArtifact = Artifact(name="risk-report", type=REPORT)
 DataArtifact = Artifact(name="training-data", type=DATA)
 
 ModelFile = ModelArtifact.File(name="model.pkl")
-ReportFile = ReportArtifact.File(name="report.html")
+ReportFile = ReportArtifact.File(name="report.md")
 DataFile = DataArtifact.File(name="training_data.csv")
 MetricsFile = ModelArtifact.File(name="metrics.json")
 
@@ -52,9 +52,9 @@ def produce_model() -> ModelFile:  # type: ignore[valid-type]
 
 @task
 def produce_report() -> ReportFile:  # type: ignore[valid-type]
-    path = "/tmp/report.html"
+    path = "/tmp/report.md"
     with open(path, "w") as f:
-        f.write("<html><body><h1>Risk Assessment Report</h1></body></html>")
+        f.write("# Risk Assessment Report")
     return FlyteFile(path)
 
 
@@ -89,7 +89,7 @@ def multi_bundle_demo():
                 files=[ModelFile, MetricsFile],
                 bundles=["Test Bundle Alpha", "Test Bundle Beta"],
             ),
-            # report.html → Beta and Gamma
+            # report.md → Beta and Gamma
             ExportArtifactFilesToBundleSpec(
                 files=[ReportFile],
                 bundles=["Test Bundle Beta", "Test Bundle Gamma"],
