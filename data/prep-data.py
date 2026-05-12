@@ -31,7 +31,7 @@ for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
     except:
         pass
 
-for i in range(15):
+for i in range(100):
     for ext in ["csv", "docx", "html", "pdf", "rtf", "sas7bdat", "xlsx"]:
         try:
             with open("/workflow/outputs/data{}{}".format(i, ext), "wb") as f:
