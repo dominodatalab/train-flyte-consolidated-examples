@@ -2,10 +2,10 @@ import os
 import shutil
 
 # prep large file
-with open("data.sas7bdat.old", "rb") as f:
+with open("/mnt/code/data/data.sas7bdat.old", "rb") as f:
     x = f.read()
 
-with open("data.sas7bdat", "wb") as f:
+with open("/mnt/code/data/data.sas7bdat", "wb") as f:
     for _ in range(100):
         f.write(x)
 
