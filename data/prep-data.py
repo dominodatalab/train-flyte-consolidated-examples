@@ -1,6 +1,15 @@
 import os
 import shutil
 
+# prep large file
+with open("data.sas7bdat.old", "rb") as f:
+    x = f.read()
+
+with open("data.sas7bdat", "wb") as f:
+    for _ in range(100):
+        f.write(x)
+
+# prep remaining data
 try:
     named_output = "model"
     os.makedirs("/workflow/outputs/{}".format(named_output), exist_ok=True)
