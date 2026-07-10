@@ -12,11 +12,18 @@ from flytekitplugins.domino.helpers import Input, Output, run_domino_job_task
 from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, EnvironmentRevisionSpecification, EnvironmentRevisionType, DatasetSnapshot, NetAppVolumeSnapshot
 from flytekitplugins.domino.artifact import Artifact, DATA, MODEL, REPORT
 
-# Default for caching, set to True or False
-cache = False
-
 # Enter the command below to run this Flow.
 # pyflyte run --remote path_config_workflow.py wf
+
+# This workflow uses the "path config" feature.
+# This means that each script can be run within a workspace, or a Flow, with no changes.
+# Pre-requisite: A netapp volume named "quick-start" in this project (Check this using `ls /mnt/netapp-volumes/quick-start`)
+#
+# To run the scripts in a workspace:
+# 1. python3 /mnt/code/scripts/generate_events.py
+# 2. python3 /mnt/code/scripts/process_events.py
+# 3. python3 /mnt/code/scripts/make_events_report.py
+# Inspect the results using `ls /mnt/netapp-volumes/quick-start`
 
 @workflow
 def wf():
