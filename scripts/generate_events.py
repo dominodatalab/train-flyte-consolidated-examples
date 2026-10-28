@@ -44,7 +44,11 @@ for _ in range(250):
     writer.writerow([ts.isoformat(), random.choices(event_types, range(len(event_types))[::-1])[0], round(random.uniform(0, 1000), 2)])
 random_data = buf.getvalue()
 
-output = Path("/mnt/netapp-volumes/quick-start/events.csv")
+import os
+
+print(os.listdir("/mnt/netapp-volumes"))
+
+output = Path("/workflow/outputs/events.csv")
 output.parent.mkdir(parents=True, exist_ok=True)
 output.write_text(random_data)
 print(random_data)
