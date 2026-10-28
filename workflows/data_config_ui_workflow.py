@@ -17,29 +17,17 @@ from flytekitplugins.domino.artifact import Artifact, DATA, MODEL, REPORT
 # (Check this using `ls /mnt/netapp-volumes/snapshots/quick-start/2`)
 
 # Enter the command below to run this Flow.
-# VOL_JSON_FIELD='"volumeId": "7e14f077-24b9-4bba-b1c2-c82a57bc3169"'; pyflyte run --remote data_config_ui_workflow.py wf --data_snapshot_reference "{$VOL_JSON_FIELD, \"snapshotVersion\": 1}" --data_snapshot_latest "{$VOL_JSON_FIELD, \"snapshotVersion\": 2}"
+# VOL_JSON_FIELD='"volumeId": "a8326a77-fbfb-4e6f-aa20-e91ccc4a81f9"'; pyflyte run --remote data_config_ui_workflow.py wf --data_snapshot_reference "{$VOL_JSON_FIELD, \"snapshotVersion\": 3}" --data_snapshot_latest "{$VOL_JSON_FIELD, \"snapshotVersion\": 2}" --batch_size 4 --severity LOW
 
 @workflow
-def wf(data_snapshot_reference: NetAppVolumeSnapshot, data_snapshot_latest: NetAppVolumeSnapshot):
-    # generate_task = run_domino_job_task(
-    #     flyte_task_name="Generate Data",
-    #     command="sleep 300",
-    #     inputs=[
-    #         Input(name="data_snapshot_reference", type=NetAppVolumeSnapshot, value=data_snapshot_reference)
-    #     ],
-    #     output_specs=[
-    #         Output(name="events", type=FlyteFile["csv"], path="/mnt/netapp-volumes/quick-start/events.csv")
-    #     ],
-    #     use_project_defaults_for_omitted=True,
-    # )
-    foo = DominoJobTask(
+def wf(data_snapshot_reference: NetAppVolumeSnapshot, data_snapshot_latest: NetAppVolumeSnapshot, batch_size: int, severity: str):
+    generate_task = DominoJobTask(
         name='Generate Data',
-        domino_job_config=DominoJobConfig(Command="sleep 300"),
+        domino_job_config=DominoJobConfig(Command="python3 /mnt/code/scripts/generate_events.py"),
         inputs={'data_snapshot_reference': NetAppVolumeSnapshot},
         outputs={'events': FlyteFile["csv"]},
         use_latest=True
-    )
-    generate_task = foo(data_snapshot_reference=data_snapshot_reference)
+    )(data_snapshot_reference=data_snapshot_reference)
 
     process_task = run_domino_job_task(
         flyte_task_name="Process Data",
